@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TUCAMBIODEACEITE.SHOP</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="container" id="pantallaInicio">
+  <h2>Bienvenido a TUCAMBIODEACEITE.SHOP</h2>
+  <button onclick="mostrarPantalla('pantallaCatalogo')">Ir al catálogo</button>
+</div>
+
+<div class="container hidden" id="pantallaCatalogo">
+  <button class="back-btn" onclick="mostrarPantalla('pantallaInicio')">← Volver</button>
+  <div class="product">
+    <img src="logo.jpg" alt="Producto de prueba">
+    <h3>Producto de prueba</h3>
+    <p>Precio: COP$1</p>
+    <button onclick="agregarAlCarrito('Producto de prueba', 1)">Agregar al carrito</button>
+  </div>
+</div>
+
+<div class="floating-cart hidden" id="btnVerCarrito" onclick="mostrarPantalla('pantallaCarrito')">
+  Ver Carrito <span id="carritoCantidad">0</span>
+</div>
+
+<div class="container hidden" id="pantallaCarrito">
+  <button class="back-btn" onclick="mostrarPantalla('pantallaCatalogo')">← Volver</button>
+  <h2>Carrito de Compras</h2>
+  <div id="carritoItems"></div>
+  <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+  <button onclick="mostrarPantalla('pantallaPago')">Confirmar Pedido</button>
+</div>
+
+<div class="container hidden" id="pantallaPago">
+  <button class="back-btn" onclick="mostrarPantalla('pantallaCarrito')">← Volver</button>
+  <h2>Confirmación de Pago</h2>
+  <form id="formularioCompra">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="email" id="correo" placeholder="Correo electrónico" required>
+    <input type="text" id="direccion" placeholder="Dirección de domicilio" required>
+    <input type="tel" id="telefono" placeholder="Teléfono" required>
+    
+    <div class="payment-methods">
+      <label><input type="radio" name="pago" value="Nequi" required> Nequi</label>
+      <label><input type="radio" name="pago" value="Daviplata"> Daviplata</label>
+      <label><input type="radio" name="pago" value="PSE"> PSE</label>
+      <label><input type="radio" name="pago" value="Tarjeta"> Tarjeta</label>
+    </div>
+
+    <h3>Total a pagar: COP$<span id="totalPago">0</span></h3>
+    <button type="button" onclick="finalizarCompra()">Finalizar Compra</button>
+  </form>
+</div>
+
+<div class="alert hidden" id="mensajeGracias">
+  <h2>¡Gracias por tu compra!</h2>
+  <p>Se enviará el comprobante por WhatsApp al número proporcionado.</p>
+  <button onclick="resetApp()">Volver al inicio</button>
+</div>
+
+<script src="script.js"></script>
+  <script src="//code.tidio.co/i4xwrwie1opinegos0orct2h96tpbpyq.js" async></script>
+</body>
+</html>
